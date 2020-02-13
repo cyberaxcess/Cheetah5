@@ -32,7 +32,47 @@
 
 #if ENABLED(SHOW_CUSTOM_BOOTSCREEN)
 
-  #include "../../../_Bootscreen.h"
+  #if ENABLED(Ender_3)
+#include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
+  #endif
+
+    #if ENABLED(Ender_5)
+#include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
+#endif
+
+    #if ENABLED(Ender_5pro)
+#include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
+#endif
+
+    #if ENABLED(CR_10)
+#include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
+#endif
+
+
+    #if ENABLED(CR_10S)
+#include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
+#endif
+
+    #if ENABLED(Sidewinder_x1)
+#include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
+#endif
+
+  #if ENABLED(Custom_printer)
+#include "../../../kay3d_bootscreens/_Bootscreen_E3.h"
+#endif
+
+#if ENABLED(customfix1)
+#include "../../../kay3d_bootscreens/_Bootscreen_CR10.h"
+#endif
+
+#if ENABLED(KAY3D_CoreXY)
+#include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
+#endif
+
+#if ENABLED(Ender_5plus)
+#include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
+#endif
+
 
   #ifndef CUSTOM_BOOTSCREEN_BMP_BYTEWIDTH
     #define CUSTOM_BOOTSCREEN_BMP_BYTEWIDTH CEILING(CUSTOM_BOOTSCREEN_BMPWIDTH, 8)
@@ -42,6 +82,7 @@
   #endif
 
 #endif
+
 
 #if ENABLED(BOOT_MARLIN_LOGO_SMALL)
 

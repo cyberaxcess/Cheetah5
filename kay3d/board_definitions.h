@@ -1,0 +1,133 @@
+#pragma once
+
+
+#ifndef __MARLIN_FIRMWARE__
+#define __MARLIN_FIRMWARE__
+#endif
+
+//
+// Prefix header to acquire configurations
+//
+#include <stdint.h>
+
+#include "Configuration.h"
+
+#if ENABLED(BTTSKRE3MINIV1_2)
+//#define processor_name STM32F103RC_bigtree //use this value in platform.ino. Serach for 'change_value' and replace it with this value STM32F103RC_bigtree
+#define motherboard_name BOARD_BTT_SKR_MINI_E3_V1_2
+#define SERIAL_PORT 2
+#define SERIAL_PORT_2 -1
+#define BAUDRATE 250000
+#endif
+
+#if ENABLED(BTTSKR1_3)
+#define processor_name LPC1768 //use this value in platform.ino. Serach for 'change_value' and replace it with this value LPC1768
+#define motherboard_name BOARD_BIGTREE_SKR_V1_3
+#define SERIAL_PORT 0
+#define SERIAL_PORT_2 -1
+#define BAUDRATE 115200
+#endif
+
+#if ENABLED(BTTGTRV1_0)
+//#define processor_name BIGTREE_GTR_V1_0 //use this value in platform.ino. Serach for 'change_value' and replace it with this value BIGTREE_GTR_V1_0
+#define motherboard_name BOARD_BIGTREE_GTR_V1_0
+#define SERIAL_PORT -1
+#define SERIAL_PORT_2 3
+#define BAUDRATE 115200
+#endif
+
+#if ENABLED(BTTSKR1_4)
+//#define processor_name LPC1768 //use this value in platform.ino. Serach for 'change_value' and replace it with this value LPC1768
+#define motherboard_name BOARD_BIGTREE_SKR_V1_4
+#define SERIAL_PORT -1
+#define SERIAL_PORT_2 0
+#define BAUDRATE 115200
+#endif
+
+
+#if ENABLED(BTTSKRV1_4TURBO)
+//#define processor_name LPC1769 //use this value in platform.ino. Serach for 'change_value' and replace it with this value LPC1769
+#define motherboard_name BOARD_BIGTREE_SKR_V1_4_TURBO
+#define SERIAL_PORT 0
+#define SERIAL_PORT_2 -1
+#define BAUDRATE 115200
+#endif
+
+#if ENABLED(BTTSKRE3DIPV1_0)
+//#define processor_name STM32F103RC_bigtree //use this value in platform.ino. Serach for 'change_value' and replace it with this value STM32F103RC_bigtree
+#define motherboard_name BOARD_BIGTREE_SKR_E3_DIP
+#define SERIAL_PORT 2
+#define SERIAL_PORT_2 -1
+#define BAUDRATE 115200
+#endif
+
+#if ENABLED(BTTSKRPROV1_1)
+//#define processor_name BIGTREE_SKR_PRO //use this value in platform.ino. Serach for 'change_value' and replace it with this value BIGTREE_SKR_PRO
+#define motherboard_name BOARD_BIGTREE_SKR_PRO_V1_1
+#define SERIAL_PORT 6
+#define SERIAL_PORT_2 1
+#define BAUDRATE 115200
+#endif 
+
+#if ENABLED(Original_creality1)
+//#define processor_name BIGTREE_SKR_PRO //use this value in platform.ino. Serach for 'change_value' and replace it with this value BIGTREE_SKR_PRO
+#define motherboard_name BOARD_MELZI_CREALITY
+#define SERIAL_PORT 0
+#define BAUDRATE 115200
+#if ENABLED(BLTOUCH)
+#define SERVO0_PIN 27
+#endif
+#endif 
+
+#if ENABLED(Original_creality2)
+//#define processor_name BIGTREE_SKR_PRO //use this value in platform.ino. Serach for 'change_value' and replace it with this value BIGTREE_SKR_PRO
+#define motherboard_name BOARD_RAMPS_13_EFB
+#define SERIAL_PORT 0
+#define BAUDRATE 115200
+#endif 
+
+#if ENABLED (MKSGENLV1_0)
+#define motherboard_name BOARD_MKS_GEN_L
+#define SERIAL_PORT 0
+#define BAUDRATE 115200
+#endif 
+
+
+#if ENABLED(BTTSKRNPRO1_1)
+//#define processor_name BIGTREE_SKR_PRO //use this value in platform.ino. Serach for 'change_value' and replace it with this value BIGTREE_SKR_PRO
+#define motherboard_name BOARD_BIGTREE_SKR_V1_1
+#define SERIAL_PORT 1
+#define SERIAL_PORT_2 -1
+#define BAUDRATE 115200
+#endif 
+
+#if ENABLED(FYSETCV1_1A) //1
+//#define processor_name BIGTREE_SKR_PRO //use this value in platform.ino. Serach for 'change_value' and replace it with this value BIGTREE_SKR_PRO
+#define motherboard_name BOARD_FYSETC_CHEETAH
+#define SERIAL_PORT 1
+#define BAUDRATE 115200
+#endif 
+
+
+#if ENABLED(FYSETCV1_1B) //2
+//#define processor_name BIGTREE_SKR_PRO //use this value in platform.ino. Serach for 'change_value' and replace it with this value BIGTREE_SKR_PRO
+#define motherboard_name BOARD_FYSETC_CHEETAH
+#define SERIAL_PORT 1
+#define BAUDRATE 115200
+#endif 
+
+#if ENABLED(FYSETCV1_2A) //3
+//#define processor_name BIGTREE_SKR_PRO //use this value in platform.ino. Serach for 'change_value' and replace it with this value BIGTREE_SKR_PRO
+#define motherboard_name BOARD_FYSETC_CHEETAH_V12
+#define SERIAL_PORT 1
+#define BAUDRATE 115200
+#endif 
+
+#if ENABLED(FYSETCV1_2B) //4
+//#define processor_name BIGTREE_SKR_PRO //use this value in platform.ino. Serach for 'change_value' and replace it with this value BIGTREE_SKR_PRO
+#define motherboard_name BOARD_FYSETC_CHEETAH_V12
+#define SERIAL_PORT 1
+#define BAUDRATE 115200
+#endif 
+
+
