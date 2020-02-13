@@ -5,7 +5,7 @@
 ![GitHub Release Date](https://img.shields.io/github/release-date/marlinfirmware/marlin.svg)
 [![Build Status](https://github.com/MarlinFirmware/Marlin/workflows/CI/badge.svg?branch=bugfix-2.0.x)](https://github.com/MarlinFirmware/Marlin/actions)
 <br>
-<img align="center" width="75%" height="auto" src="https://cdn.shopify.com/s/files/1/2354/7497/files/githubcover_photo_for_cheetah_5.0.png" />
+<img align="middle" width="75%" height="auto" src="https://cdn.shopify.com/s/files/1/2354/7497/files/githubcover_photo_for_cheetah_5.0.png" />
 
 <img align="right" width=175 src="buildroot/share/pixmaps/logo/marlin-250.png" />
 
