@@ -1,4 +1,4 @@
-# Marlin 3D Printer Firmware
+# CHEETAH 5.0 - Based on the Popular Marlin Firmware
 
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
 ![GitHub contributors](https://img.shields.io/github/contributors/marlinfirmware/marlin.svg)
