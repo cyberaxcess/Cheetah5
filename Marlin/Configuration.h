@@ -79,18 +79,18 @@
 //#define FYSETCV1_2B // Chosoe this if you are using the Fysetc Cheetah 1.2b
 
 /*Board name: 
-Board name: Original_creality1, change_vale = melzi //use this value in platform.ino. Search for 'change_value' and replace it with this value melzi
-Board name: Original_creality2, change_vale = megaatmega2560 //use this value in platform.ino. Search for 'change_value' and replace it with this value megaatmega2560
-Board name: MKSGENLV1_0, hange_vale = megaatmega2560 //use this value in platform.ino. Search for 'change_value' and replace it with this value megaatmega2560
-Board name: BTTSKRE3MINIV1_2, change_vale = STM32F103RC_bigtree_512K //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_bigtree_512K
-Board name: BTTSKR1_3, change_vale = LPC1768 //use this value in platform.ino. Search for 'change_value' and replace it with this value LPC1768
-Board name: BTTSKR1_4, change_vale = LPC1768 //use this value in platform.ino. Search for 'change_value' and replace it with this value LPC1768
-Board name: BTTGTRV1_0, change_vale = BIGTREE_GTR_V1_0 //use this value in platform.ino. Search for 'change_value' and replace it with this value BIGTREE_GTR_V1_0
-Board name: BTTSKRV1_4TURBO, change_vale = LPC1769 //use this value in platform.ino. Search for 'change_value' and replace it with this value LPC1769
-Board name: BTTSKRE3DIPV1_0, change_vale = STM32F103RC_bigtree //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_bigtree
-Board name: BTTSKRPROV1_1, change_vale = BIGTREE_SKR_PRO //use this value in platform.ino. Search for 'change_value' and replace it with this value BIGTREE_SKR_PRO
-Board name: BTTSKRNPRO1_1, change_vale = LPC1768 //use this value in platform.ino. Search for 'change_value' and replace it with this value BIGTREE_SKR_PRO
-Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_vale = STM32F103RC_fysetc //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_fysetc*/
+Board name: Original_creality1, change_value = melzi //use this value in platform.ino. Search for 'change_value' and replace it with this value melzi
+Board name: Original_creality2, change_value = megaatmega2560 //use this value in platform.ino. Search for 'change_value' and replace it with this value megaatmega2560
+Board name: MKSGENLV1_0, change_value = megaatmega2560 //use this value in platform.ino. Search for 'change_value' and replace it with this value megaatmega2560
+Board name: BTTSKRE3MINIV1_2, change_value = STM32F103RC_bigtree_512K //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_bigtree_512K
+Board name: BTTSKR1_3, change_value = LPC1768 //use this value in platform.ino. Search for 'change_value' and replace it with this value LPC1768
+Board name: BTTSKR1_4, change_value = LPC1768 //use this value in platform.ino. Search for 'change_value' and replace it with this value LPC1768
+Board name: BTTGTRV1_0, change_value = BIGTREE_GTR_V1_0 //use this value in platform.ino. Search for 'change_value' and replace it with this value BIGTREE_GTR_V1_0
+Board name: BTTSKRV1_4TURBO, change_value = LPC1769 //use this value in platform.ino. Search for 'change_value' and replace it with this value LPC1769
+Board name: BTTSKRE3DIPV1_0, change_value = STM32F103RC_bigtree //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_bigtree
+Board name: BTTSKRPROV1_1, change_value = BIGTREE_SKR_PRO //use this value in platform.ino. Search for 'change_value' and replace it with this value BIGTREE_SKR_PRO
+Board name: BTTSKRNPRO1_1, change_value = LPC1768 //use this value in platform.ino. Search for 'change_value' and replace it with this value BIGTREE_SKR_PRO
+Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = STM32F103RC_fysetc //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_fysetc*/
 
 
 /*** *** *** Section 1B - Choose only ONE LCD controller type. */

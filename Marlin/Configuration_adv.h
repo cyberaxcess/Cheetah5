@@ -28,7 +28,7 @@
 
 /*** *** *** Section 14 - Last Printer Settings *** *** ***/
 
-#define SENSORLESS_HOMING // StallGuard capable drivers only. i.e TMC2209, TMC2130, TMC2160, TMC2660, or TMC5160 etc. Please ensure mechanical connections from drivers to board are connected correctly.
+//#define SENSORLESS_HOMING // StallGuard capable drivers only. i.e TMC2209, TMC2130, TMC2160, TMC2660, or TMC5160 etc. Please ensure mechanical connections from drivers to board are connected correctly.
 #define LIN_ADVANCE // Only toggle this on and off. Leave the rest as default unless you know how to tune them
 #if ENABLED(LIN_ADVANCE)
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
@@ -2833,7 +2833,6 @@
  * User-defined menu items that execute custom GCode
  */
 #if ENABLED(Compress_space) //Custom menu nor available as soon as Compress_funciton activated
-{
 //#define CUSTOM_USER_MENUS
 #else
 #define CUSTOM_USER_MENUS
