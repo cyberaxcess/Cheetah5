@@ -51,7 +51,7 @@ void GcodeSuite::KAY3DM851() {
         //PSTR(MSG_PROBE_OFFSET " X"), probe_offset.x, SP_Y_STR, probe_offset.y, SP_Z_STR
         #if HAS_SPI_LCD // Display M851 results in the status bar
         //char sigma_str[8];
-      ui.status_printf_P(0, PSTR("Probe Offset : X%i, Y%i, Z%i"), int(probe_offset.x), int(probe_offset.y), int(probe_offset.z));
+      ui.status_printf_P(0, PSTR("Probe Offset : X%.02f, Y%.02f, Z%.02f"), float(probe_offset.x), float(probe_offset.y), float(probe_offset.z));
         #else
         //PSTR(MSG_PROBE_OFFSET " X0 Y0 Z")
         //#if HAS_SPI_LCD // Display M851 results in the status bar
