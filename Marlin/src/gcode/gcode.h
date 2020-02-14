@@ -959,6 +959,12 @@ private:
   #if ENABLED(MAX7219_GCODE)
     static void M7219();
   #endif
+    
+#if HAS_BED_PROBE //added KAY3D851 value
+    static void KAY3DM851();
+#endif
+    
+    
 
   static void T(const uint8_t tool_index);
 

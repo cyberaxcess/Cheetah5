@@ -28,6 +28,7 @@
 
 /*** *** *** Section 14 - Last Printer Settings *** *** ***/
 
+#define SENSORLESS_HOMING // StallGuard capable drivers only. i.e TMC2209, TMC2130, TMC2160, TMC2660, or TMC5160 etc. Please ensure mechanical connections from drivers to board are connected correctly.
 #define LIN_ADVANCE // Only toggle this on and off. Leave the rest as default unless you know how to tune them
 #if ENABLED(LIN_ADVANCE)
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
@@ -426,7 +427,12 @@
  * Multiple extruders can be assigned to the same pin in which case
  * the fan will turn on when any selected extruder is above the threshold.
  */
-#define E0_AUTO_FAN_PIN -1
+#if defined(Auto_fan_E1)
+#define E0_AUTO_FAN_PIN P2_04 //only activate if any of these 3 compatibla boards are chosen
+#else
+#define E0_AUTO_FAN_PIN -1 //reverts to default Marlin pin config. if Auto_fan_E1 not activated
+#endif 
+
 #define E1_AUTO_FAN_PIN -1
 #define E2_AUTO_FAN_PIN -1
 #define E3_AUTO_FAN_PIN -1
@@ -2298,7 +2304,6 @@
    * IMPROVE_HOMING_RELIABILITY tunes acceleration and jerk when
    * homing and adds a guard period for endstop triggering.
    */
-  //#define SENSORLESS_HOMING // StallGuard capable drivers only
 
   /**
    * Use StallGuard2 to probe the bed with the nozzle.
@@ -2306,14 +2311,19 @@
    * CAUTION: This could cause damage to machines that use a lead screw or threaded rod
    *          to move the Z axis. Take extreme care when attempting to enable this feature.
    */
-  //#define SENSORLESS_PROBING // StallGuard capable drivers only
 
   #if EITHER(SENSORLESS_HOMING, SENSORLESS_PROBING)
     // TMC2209: 0...255. TMC2130: -64...63
-    #define X_STALL_SENSITIVITY  8
+    #if (x_driver_type == TMC2209) //Auto TMC value selections on Cheetah 5.0 based on selected TMC2209 values
+    #define X_STALL_SENSITIVITY  20 // Please attempt to tune x stall sensititivy via host, M914 Xchang_value. Acceptable values 0 to 255
     #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY
-    #define Y_STALL_SENSITIVITY  8
-    //#define Z_STALL_SENSITIVITY  8
+    #define Y_STALL_SENSITIVITY  20 // Please attempt to tune x stall sensititivy via host, M914 Ychang_value. Acceptable values 0 to 255
+    #else // Auto TMC value selections on Cheetah 5.0 based on selected all other trinamic values except TMC2209
+    #define X_STALL_SENSITIVITY  10 // Please attempt to tune x stall sensititivy via host, M914 Xchang_value. Acceptable values -63 to 63
+    #define X2_STALL_SENSITIVITY X_STALL_SENSITIVITY 
+    #define Y_STALL_SENSITIVITY  10 // Please attempt to tune x stall sensititivy via host, M914 Ychang_value
+    #endif
+    //#define Z_STALL_SENSITIVITY  8 //sensorless homing is not stable for Z using your nozzle. Pleae do not attempt. Acceptable values -63 to 63
     //#define SPI_ENDSTOPS              // TMC2130 only
     //#define IMPROVE_HOMING_RELIABILITY
   #endif
@@ -2822,27 +2832,33 @@
 /**
  * User-defined menu items that execute custom GCode
  */
+#if ENABLED(Compress_space) //Custom menu nor available as soon as Compress_funciton activated
+{
 //#define CUSTOM_USER_MENUS
+#else
+#define CUSTOM_USER_MENUS
 #if ENABLED(CUSTOM_USER_MENUS)
-  //#define CUSTOM_USER_MENU_TITLE "Custom Commands"
-  #define USER_SCRIPT_DONE "M117 User Script Done"
+  #define CUSTOM_USER_MENU_TITLE "KAY3D Commands"
+  //#define USER_SCRIPT_DONE "M117 User Script Done"
   #define USER_SCRIPT_AUDIBLE_FEEDBACK
   //#define USER_SCRIPT_RETURN  // Return to status screen after a script
 
-  #define USER_DESC_1 "Home & UBL Info"
-  #define USER_GCODE_1 "G28\nG29 W"
+  #define USER_DESC_1 "Reset EEPROM"
+  #define USER_GCODE_1 "M502"
 
-  #define USER_DESC_2 "Preheat for " PREHEAT_1_LABEL
-  #define USER_GCODE_2 "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_1_TEMP_HOTEND)
+  #define USER_DESC_2 "Probe Offset Values"
+  #define USER_GCODE_2 "M555" // shows nozzle-to-probe offset values
 
-  #define USER_DESC_3 "Preheat for " PREHEAT_2_LABEL
+  //unused custom user menus below. Add in your own if you want.
+  /*#define USER_DESC_3 "Preheat for " PREHEAT_2_LABEL
   #define USER_GCODE_3 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
 
   #define USER_DESC_4 "Heat Bed/Home/Level"
   #define USER_GCODE_4 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
 
   #define USER_DESC_5 "Home & Info"
-  #define USER_GCODE_5 "G28\nM503"
+  #define USER_GCODE_5 "G28\nM503"*/
+#endif
 #endif
 
 /**

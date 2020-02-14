@@ -231,6 +231,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_vale = ST
 //#define BLTOUCH_v3_v3_1 //define this ONLY if your bltouch is version 3 or 3.1. Check at the back of BLtouch's board if you are unsure
 //#define BLTOUCH //define this if you have a BL touch regardless of your BLtouch version
 //#define FIX_MOUNTED_PROBE //define this if you have a fixed probe sensor - capacitive/ inductive or the EZabl by TH3D
+//#define TOUCH_MI_PROBE // define this if you have a TOUCH-MI sensor.
 
 /*** *** ***  Section 11A - Customize your Auto and Manual mesh bed leveling settings here. Otherwise ignore this section *** *** ***/
 
@@ -399,7 +400,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_vale = ST
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.1.7"
+#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.1.8"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -907,8 +908,14 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_vale = ST
 #endif
 
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
+#if ENABLED(SENSORLESS_HOMING) 
+#define X_MIN_ENDSTOP_INVERTING true // Logic Inverted for sensorless homing automatically
+#define Y_MIN_ENDSTOP_INVERTING true // Logic Inverted for sensorless homing automatically
+#else
 #define X_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
+#endif
+
 #if ENABLED(FIX_MOUNTED_PROBE)
 #define Z_MIN_ENDSTOP_INVERTING true //Only applicable to NPN N.O. sensors
 #else
@@ -1057,8 +1064,6 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_vale = ST
   #endif
 #endif
 
-#define DEFAULT_EJERK    5.0  // May be used by Linear Advance
-
 /**
  * Junction Deviation Factor
  *
@@ -1162,7 +1167,6 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_vale = ST
  * Also requires: BABYSTEPPING, BABYSTEP_ZPROBE_OFFSET, Z_SAFE_HOMING,
  *                and a minimum Z_HOMING_HEIGHT of 10.
  */
-//#define TOUCH_MI_PROBE 
 #if ENABLED(TOUCH_MI_PROBE)
   #define TOUCH_MI_RETRACT_Z 0.5                  // Height at which the probe retracts
   //#define TOUCH_MI_DEPLOY_XPOS (X_MAX_BED + 2)  // For a magnet on the right side of the bed
@@ -2587,3 +2591,4 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_vale = ST
 
 // Section - Custom Codes
 /*****************************************************************************/
+//define Auto_fan_E1 // Activate this function only for SKR 1.3, 1.4, 1.4 Turbo Boards. Mechanical wiring changes IS REQUIRED! Proceed with caution
