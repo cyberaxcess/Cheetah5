@@ -34,7 +34,7 @@
 
 
 extern const char SP_Y_STR[], SP_Z_STR[];
-float mean = 0.0, sigma = 0.0, min = 99999.9, max = -99999.9;
+//float mean = 0.0, sigma = 0.0, min = 99999.9, max = -99999.9;
 
 
 /**
