@@ -2832,9 +2832,7 @@
 /**
  * User-defined menu items that execute custom GCode
  */
-#if ENABLED(Compress_space) //Custom menu nor available as soon as Compress_funciton activated
-//#define CUSTOM_USER_MENUS
-#else
+
 #define CUSTOM_USER_MENUS
 #if ENABLED(CUSTOM_USER_MENUS)
   #define CUSTOM_USER_MENU_TITLE "KAY3D Commands"
@@ -2857,7 +2855,6 @@
 
   #define USER_DESC_5 "Home & Info"
   #define USER_GCODE_5 "G28\nM503"*/
-#endif
 #endif
 
 /**
