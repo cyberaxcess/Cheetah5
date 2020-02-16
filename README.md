@@ -13,14 +13,21 @@ You can read all about Cheetah 5.0 and why we released it to the public here:
 
 <a href="https://kay3d.com/pages/kay3d-cheetah-5-firmware">Cheetah 5.0's Story</a><br>
 
-You can find editing, compiling instructions for 32 bit boards here:
+You can find editing, compiling instructions for 32 bit and 8 bit boards here:
 
-<a href="https://kay3d.com/pages/editing-and-compiling-kay3d-cheetah-5-firmware-on-visual-studio-code">Cheetah 5.0's Editing and Compiling Instructions</a>
+<a href="https://kay3d.com/pages/editing-and-compiling-kay3d-cheetah-5-firmware-on-visual-studio-code">Cheetah 5.0's Editing and Compiling Instructions for 32 Bit Boards</a>
+
+<a href="https://kay3d.com/pages/editing-and-compiling-kay3d-cheetah-5-0-firmware-on-visual-studio-code-for-8-bit-boards">Cheetah 5.0's Editing and Compiling Instructions for 8 Bit Boards</a>
 
 If you need additional documentation with reference to Marlin's code, they can be found at the [Marlin Home Page](http://marlinfw.org/).
 
 Please let us know if Cheetah 5.0 misbehaves in any way. 
 If the issue happens even on Vanilla Marlin, please also let the Marlin Dev team know by submitting an issue on the correct Github so we can fix the root of the issue!
+
+Is the latest version not working for you? Download the last stable versions below. Other older versions are not included here but archived elsewhere.
+
+<a href="https://drive.google.com/open?id=1b0kF-Klb5NNVxgdkaLGWmyjKzACiBp0Z">Download Cheetah 5.0 v1.1.8</a>
+<a href="https://drive.google.com/open?id=12RGvjK3fU5TbDsIbVvAcIGbJqxuFRTRQ">Download Cheetah 5.0 v1.1.7</a>
 
 ## Built on Marlin 2.0
 
@@ -30,9 +37,8 @@ Download earlier versions of Marlin on the [Releases page](https://github.com/Ma
 
 ## Building Marlin 2.0
 
-To build Marlin 2.0 you'll need [Arduino IDE 1.8.8 or newer](https://www.arduino.cc/en/main/software) or [PlatformIO](http://docs.platformio.org/en/latest/ide.html#platformio-ide). Detailed build and install instructions are posted at:
+To build Marlin 2.0 you'll need [[PlatformIO](http://docs.platformio.org/en/latest/ide.html#platformio-ide). Detailed build and install instructions are posted at:
 
-  - [Installing Marlin (Arduino)](http://marlinfw.org/docs/basics/install_arduino.html)
   - [Installing Marlin (VSCode)](http://marlinfw.org/docs/basics/install_platformio_vscode.html).
 
 
