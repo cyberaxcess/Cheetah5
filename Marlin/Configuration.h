@@ -185,7 +185,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 //#define zesty_nimble // e-steps: 2700. Zesty Nimble extruder
 //#define SEEMECNCEZRSTRUDER // e-steps: 94.86
 //#define E3D_titanaero_extruder // e-steps: 837. TITAN AERO hotend's extruder
-//#define custom_extruder // use this if you have your own custom extruder with unique esteps. 
+//#define custom_extruder // Please use this if you have your own custom extruder with unique esteps. 
 
 /*if have a custom_extruder, define your values below. If not, skip this section and continue below */
 #if ENABLED (custom_extruder)
@@ -269,7 +269,17 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
   #define NOZZLE_TO_PROBE_OFFSET { change_value, change_value, 0 } //Measure the distance between the centre of your probe to the nozzle and replace 'change_value'. KEEP the value 0 there so you can do your z probe offset calibration. Only replace 0 if you know your values. Otherwise your nozzle may CRASH.
 #endif
 
-/*** *** *** Section 13 - Advanced Printer Settings. Change them or you can leave them as default *** *** ***/
+/*** *** *** Section 13A - Filament Change Settings. This is where you configure your Filament change/ Pause settings *** *** ***/
+
+//#define ADVANCED_PAUSE_FEATURE  //Activate this feature if you want to have Filament change and Pause enabled.
+//#define Nozzle_topright_park // Nozzle is Automatically parked on top left of bed by default during pause & filament change. Define this if you want the nozzle to be parked on the top right instead.
+#define Total_filament_path change_value // Please measure the entire distance fron the Extruder to the the tip of the nozzle as accurately as possible. Replace change_value with your measured value here in mm units. NOT ft/inch.
+
+/*** *** *** Section 13B - Additional Sensors. E.g. Filament Sensors. This is where you activate and define your settings *** *** ***/
+//#define FILAMENT_RUNOUT_SENSOR // Define this if you have a filament sensor. Please ensure it is connected to your mainboard and NOT your TFT
+//#define INVERT_FS_LOGIC // Define this ONLY if filament sensor is not detecting filament correctly. 
+
+/*** *** *** Section 14 - Advanced Printer Settings. Change them or you can leave them as default *** *** ***/
 
 //#define INVERT_XYZ // Define this function only if your XYZ is going in the wrong direction!!! This inverts all 3 axis(s) together. Does not work with Custom_Printer. Change settigns in that section!
 #define INVERT_E0_DIR true // This is for your Extruder's direction. Change value to false if you need your extruder motor to rotate the other way
@@ -829,7 +839,11 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 200
+#if ENABLED(ADVANCED_PAUSE_FEATURE)
+#define EXTRUDE_MAXLENGTH (Total_filament_path + 1) // constant 1 added to ensure function works as required
+#else 
+#define EXTRUDE_MAXLENGTH 200 //dummy value
+#endif //endif ADVANCED_PAUSE_FEATURE
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -1407,10 +1421,17 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
  * For other boards you may need to define FIL_RUNOUT_PIN, FIL_RUNOUT2_PIN, etc.
  * By default the firmware assumes HIGH=FILAMENT PRESENT.
  */
-//#define FILAMENT_RUNOUT_SENSOR // Only define this if you have a filament sensor. If it doesnt compile. disable this option by keeping the // in front of #define
+//#define FILAMENT_RUNOUT_SENSOR // Already defined in earlier sections
+
+
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define NUM_RUNOUT_SENSORS   1     // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
-  #define FIL_RUNOUT_INVERTING false // Set to true to invert the logic of the sensor.
+  
+  #if ENABLED(INVERT_FS_LOGIC)
+  #define FIL_RUNOUT_INVERTING true // Trigger's alternative as soon as invert filamentsensor logic is activated
+  #else
+  #define FIL_RUNOUT_INVERTING false // Logic inverting is automatically taken care in section 13
+  #endif
   #define FIL_RUNOUT_PULLUP          // Use internal pullup for filament runout pins.
   //#define FIL_RUNOUT_PULLDOWN      // Use internal pulldown for filament runout pins.
 
@@ -1755,13 +1776,13 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 180
+#define PREHEAT_1_TEMP_HOTEND 200
 #define PREHEAT_1_TEMP_BED     70
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
-#define PREHEAT_2_LABEL       "ABS"
+#define PREHEAT_2_LABEL       "PETG"
 #define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    110
+#define PREHEAT_2_TEMP_BED    80
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
 /**
@@ -1775,11 +1796,17 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
  *    P1  Raise the nozzle always to Z-park height.
  *    P2  Raise the nozzle by Z-park amount, limited to Z_MAX_POS.
  */
-//#define NOZZLE_PARK_FEATURE
+//#define NOZZLE_PARK_FEATURE //declared in section 13 in Cheetah 5.0
 
-#if ENABLED(NOZZLE_PARK_FEATURE)
+#if ENABLED(ADVANCED_PAUSE_FEATURE) // Default if condition is NOZZLE_PARK_FEATURE. Cheetah 5.0 will use nozzle park as default when M600 is issued
+  #define NOZZLE_PARK_FEATURE // Automatic declaratin as soon as M600 is required.
   // Specify a park position as { X, Y, Z_raise }
-  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 }
+  #if ENABLED(Nozzle_topright_park) //allows users to choose parked position of nozzle
+  #define NOZZLE_PARK_POINT { (X_MAX_POS - 10), (Y_MAX_POS - 10), 20 } // top right of bed 
+  #else
+  #define NOZZLE_PARK_POINT { (X_MIN_POS + 10), (Y_MAX_POS - 10), 20 } // Automatic park on top left of bed
+  #endif // endif Nozzle_topleft_park
+
   #define NOZZLE_PARK_XY_FEEDRATE 100   // (mm/s) X and Y axes feedrate (also used for delta Z axis)
   #define NOZZLE_PARK_Z_FEEDRATE 5      // (mm/s) Z axis feedrate (not used for delta printers)
 #endif
@@ -2591,4 +2618,4 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 
 // Section - Custom Codes
 /*****************************************************************************/
-//define Auto_fan_E1 // Activate this function only for SKR 1.3, 1.4, 1.4 Turbo Boards. Mechanical wiring changes IS REQUIRED! Proceed with caution
+//#define Auto_fan_E1 // Activate this function only for SKR 1.3, 1.4, 1.4 Turbo Boards. Mechanical wiring changes IS REQUIRED! Proceed with caution

@@ -56,6 +56,10 @@
 #if ENABLED(BLTOUCH)
   #define SERVO0_PIN 27
   #undef BEEPER_PIN
+#else
+#define FIL_RUNOUT_PIN 27   //declares pin 27 for filament runout sensor
+#undef BEEPER_PIN
+
 #endif
 
 // Alter timing for graphical display

@@ -74,9 +74,9 @@
 #define motherboard_name BOARD_MELZI_CREALITY
 #define SERIAL_PORT 0
 #define BAUDRATE 115200
-#if ENABLED(BLTOUCH)
-#define SERVO0_PIN 27
-#endif
+//#if ENABLED(BLTOUCH) //already declared in pins_MELZI_CREALITY.h
+//#define SERVO0_PIN 27 //already declared in pins_MELZI_CREALITY.h
+//#endif
 #endif 
 
 #if ENABLED(Original_creality2)

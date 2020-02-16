@@ -26,7 +26,7 @@
 #else //ignore this line of code
 
 
-/*** *** *** Section 14 - Last Printer Settings *** *** ***/
+/*** *** *** Section 15 - Last Printer Settings *** *** ***/
 
 //#define SENSORLESS_HOMING // StallGuard capable drivers only. i.e TMC2209, TMC2130, TMC2160, TMC2660, or TMC5160 etc. Please ensure mechanical connections from drivers to board are connected correctly.
 #define LIN_ADVANCE // Only toggle this on and off. Leave the rest as default unless you know how to tune them
@@ -1848,14 +1848,14 @@
  * Requires NOZZLE_PARK_FEATURE.
  * This feature is required for the default FILAMENT_RUNOUT_SCRIPT.
  */
-//#define ADVANCED_PAUSE_FEATURE
+//#define ADVANCED_PAUSE_FEATURE // line declared in section 13 in configuration.h
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
   #define PAUSE_PARK_RETRACT_FEEDRATE         60  // (mm/s) Initial retract feedrate.
   #define PAUSE_PARK_RETRACT_LENGTH            2  // (mm) Initial retract.
                                                   // This short retract is done immediately, before parking the nozzle.
   #define FILAMENT_CHANGE_UNLOAD_FEEDRATE     10  // (mm/s) Unload filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_UNLOAD_ACCEL        25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-  #define FILAMENT_CHANGE_UNLOAD_LENGTH      100  // (mm) The length of filament for a complete unload.
+  #define FILAMENT_CHANGE_UNLOAD_LENGTH      Total_filament_path  // User input for Cheetah 5.0 in config.h (mm) The length of filament for a complete unload.
                                                   //   For Bowden, the full length of the tube and nozzle.
                                                   //   For direct drive, the full length of the nozzle.
                                                   //   Set to 0 for manual unloading.
@@ -1864,7 +1864,7 @@
                                                   // 0 to disable start loading and skip to fast load only
   #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE   6  // (mm/s) Load filament feedrate. This can be pretty fast.
   #define FILAMENT_CHANGE_FAST_LOAD_ACCEL     25  // (mm/s^2) Lower acceleration may allow a faster feedrate.
-  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH     0  // (mm) Load length of filament, from extruder gear to nozzle.
+  #define FILAMENT_CHANGE_FAST_LOAD_LENGTH    Total_filament_path  // User input for Cheetah 5.0 in config.h (mm) Load length of filament, from extruder gear to nozzle.
                                                   //   For Bowden, the full length of the tube and nozzle.
                                                   //   For direct drive, the full length of the nozzle.
   //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
@@ -1874,7 +1874,7 @@
                                                   //   Filament can be extruded repeatedly from the Filament Change menu
                                                   //   until extrusion is consistent, and to purge old filament.
   #define ADVANCED_PAUSE_RESUME_PRIME          0  // (mm) Extra distance to prime nozzle after returning from park.
-  //#define ADVANCED_PAUSE_FANS_PAUSE             // Turn off print-cooling fans while the machine is paused.
+  #define ADVANCED_PAUSE_FANS_PAUSE             // Please turn off if the function doesnt work. Turn off print-cooling fans while the machine is paused.
 
                                                   // Filament Unload does a Retract, Delay, and Purge first:
   #define FILAMENT_UNLOAD_PURGE_RETRACT       13  // (mm) Unload initial retract length.
@@ -1883,13 +1883,13 @@
   #define FILAMENT_UNLOAD_PURGE_FEEDRATE      25  // (mm/s) feedrate to purge before unload
 
   #define PAUSE_PARK_NOZZLE_TIMEOUT           45  // (seconds) Time limit before the nozzle is turned off for safety.
-  #define FILAMENT_CHANGE_ALERT_BEEPS         10  // Number of alert beeps to play when a response is needed.
+  #define FILAMENT_CHANGE_ALERT_BEEPS         5  // Number of alert beeps to play when a response is needed.
   #define PAUSE_PARK_NO_STEPPER_TIMEOUT           // Enable for XYZ steppers to stay powered on during filament change.
 
-  //#define PARK_HEAD_ON_PAUSE                    // Park the nozzle during pause and filament change.
-  //#define HOME_BEFORE_FILAMENT_CHANGE           // Ensure homing has been completed prior to parking for filament change
+  #define PARK_HEAD_ON_PAUSE                    // Park the nozzle during pause and filament change.
+  //#define HOME_BEFORE_FILAMENT_CHANGE           // Do not activate unless End stops have good STD deviation values. Ensure homing has been completed prior to parking for filament change
 
-  //#define FILAMENT_LOAD_UNLOAD_GCODES           // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu.
+  #define FILAMENT_LOAD_UNLOAD_GCODES           // Add M701/M702 Load/Unload G-codes, plus Load/Unload in the LCD Prepare menu.
   //#define FILAMENT_UNLOAD_ALL_EXTRUDERS         // Allow M702 to unload all extruders above a minimum target temp (as set by M302)
 #endif
 
@@ -2218,7 +2218,11 @@
    */
   #define STEALTHCHOP_XY
   #define STEALTHCHOP_Z
-  #define STEALTHCHOP_E
+  #if (e_driver_type == TMC2208)
+ //#define STEALTHCHOP_E //solves TMC2208 errors if LA is acivated
+  #else
+  #define STEALTHCHOP_E //if driver is not TMC2208, steathchop for E is automatically enabled.
+  #endif
 
   /**
    * Optimize spreadCycle chopper parameters by using predefined parameter sets
@@ -2332,7 +2336,10 @@
    * Beta feature!
    * Create a 50/50 square wave step pulse optimal for stepper drivers.
    */
-  //#define SQUARE_WAVE_STEPPING
+
+  #if (e_driver_type == TMC2208)
+  #define SQUARE_WAVE_STEPPING
+  #endif
 
   /**
    * Enable M122 debugging command for TMC stepper drivers.
@@ -2843,8 +2850,19 @@
   #define USER_DESC_1 "Reset EEPROM"
   #define USER_GCODE_1 "M502"
 
-  #define USER_DESC_2 "Probe Offset Values"
+  #if defined(Original_creality1) || defined(Original_creality2) //float offset values are declared for XYZ probe offset LCD display. They will not display right in 8 bit boards.
+  //#define USER_DESC_2 "Check Probe Offset"
+  //#define USER_GCODE_2 "M555" // shows nozzle-to-probe offset values
+  #else
+  #define USER_DESC_2 "Check Probe Offset"
   #define USER_GCODE_2 "M555" // shows nozzle-to-probe offset values
+  #endif 
+
+  #define USER_DESC_3 "Disable Cold Extrusion"
+  #define USER_GCODE_3 "M302 P1" // shows nozzle-to-probe offset values
+
+  #define USER_DESC_4 "Enable Cold Extrusion"
+  #define USER_GCODE_4 "M302 P0" // shows nozzle-to-probe offset values
 
   //unused custom user menus below. Add in your own if you want.
   /*#define USER_DESC_3 "Preheat for " PREHEAT_2_LABEL
