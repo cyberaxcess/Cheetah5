@@ -26,7 +26,7 @@ If the issue happens even on Vanilla Marlin, please also let the Marlin Dev team
 
 Is the latest version not working for you? Download the last stable versions below. Other older versions are not included here but archived elsewhere.
 
-<a href="https://drive.google.com/open?id=1b0kF-Klb5NNVxgdkaLGWmyjKzACiBp0Z">Download Cheetah 5.0 v1.1.8</a>
+<a href="https://drive.google.com/open?id=1b0kF-Klb5NNVxgdkaLGWmyjKzACiBp0Z">Download Cheetah 5.0 v1.1.8</a><br><br>
 <a href="https://drive.google.com/open?id=12RGvjK3fU5TbDsIbVvAcIGbJqxuFRTRQ">Download Cheetah 5.0 v1.1.7</a>
 
 ## Built on Marlin 2.0
