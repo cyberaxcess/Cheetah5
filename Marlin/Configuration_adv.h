@@ -1192,6 +1192,15 @@
      */
     //#define SDCARD_CONNECTION LCD
   #endif
+  
+  //brought core function SDCARD_CONNECTION out of Sub nest HAS_SDCARD_CONNECTION to prevent too many nests.
+
+  #if ENABLED(SDCARD_BOARD_FIX)
+  #define SDCARD_CONNECTION ONBOARD // Forces SD card to work on mainboard. Some boards do not need this fix.
+  #endif
+  #if ENABLED(SDCARD_LCD_FIX)
+  #define SDCARD_CONNECTION LCD // Forces SD card to work on external LCD/ TFT. Some screens do not need this fix.
+  #endif 
 
 #endif // SDSUPPORT
 

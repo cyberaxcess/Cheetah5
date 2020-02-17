@@ -394,21 +394,6 @@ void menu_motion() {
     GCODES_ITEM(MSG_AUTO_HOME_Z, PSTR("G28 Z"));
   #endif
 
-  GCODES_ITEM(MSG_AUTO_HOME_X, G28_STR); //custom line for G8 X only
-  #if ENABLED(INDIVIDUAL_AXIS_HOMING_MENU)
-    GCODES_ITEM(MSG_AUTO_HOME_X, PSTR("G28 X"));
-  #endif
-
-  GCODES_ITEM(MSG_AUTO_HOME_Y, G28_STR); //custom line for G8 Y only
-  #if ENABLED(INDIVIDUAL_AXIS_HOMING_MENU)
-    GCODES_ITEM(MSG_AUTO_HOME_X, PSTR("G28 Y"));
-  #endif
-
-  GCODES_ITEM(MSG_AUTO_HOME_Z, G28_STR); //custom line for G8 Z only
-  #if ENABLED(INDIVIDUAL_AXIS_HOMING_MENU)
-    GCODES_ITEM(MSG_AUTO_HOME_X, PSTR("G28 Z"));
-  #endif
-
   //
   // Auto Z-Align
   //
