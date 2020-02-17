@@ -8,7 +8,7 @@
 //
 // Prefix header to acquire configurations
 //
-#include <stdint.h>
+//#include <stdint.h>
 
 #include "Configuration.h"
 
