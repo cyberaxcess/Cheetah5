@@ -64,8 +64,9 @@
 
 //#define Original_creality1 // Choose this if you have an original creality board - Ender 3/ Ender 3 pro/ Ender 5. Sanguino 1284P Boards
 //#define Original_creality2 / Choose this if you have an original creality board - CR-10S, CR-10S5 / Ender 5 Plus. ATmega2560 Boards
-//#define BTTSKRE3MINIV1_2 // Choose this if you are using BigTreeTech SKR Mini E3 v1.2. 
-//#define BTTSKR1_3 //Choose this if you are using BigTreeTech SKR 1.3 
+//#define BTTSKRE3MINIV1_0 // Choose this if you are using BigTreeTech SKR Mini E3 V1.0
+//#define BTTSKRE3MINIV1_2 // Choose this if you are using BigTreeTech SKR Mini E3 v1.2 
+//#define BTTSKR1_3 // Choose this if you are using BigTreeTech SKR 1.3 
 //#define BTTGTRV1_0 //[BETA] Choose this if you are using BigTreeTech GTR 1.0
 //#define BTTSKR1_4 // [BETA] Choose this if you are using BigTreeTech SKR 1.4
 //#define BTTSKRV1_4TURBO //Choose this if you are using BigTreeTech SKR 1.4 Turbo
@@ -82,6 +83,7 @@
 Board name: Original_creality1, change_value = melzi //use this value in platform.ino. Search for 'change_value' and replace it with this value melzi
 Board name: Original_creality2, change_value = megaatmega2560 //use this value in platform.ino. Search for 'change_value' and replace it with this value megaatmega2560
 Board name: MKSGENLV1_0, change_value = megaatmega2560 //use this value in platform.ino. Search for 'change_value' and replace it with this value megaatmega2560
+Board name: BTTSKRE3MINIV1_0, change_value = STM32F103RC_bigtree_NOUSB //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_bigtree_512K
 Board name: BTTSKRE3MINIV1_2, change_value = STM32F103RC_bigtree_512K //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_bigtree_512K
 Board name: BTTSKR1_3, change_value = LPC1768 //use this value in platform.ino. Search for 'change_value' and replace it with this value LPC1768
 Board name: BTTSKR1_4, change_value = LPC1768 //use this value in platform.ino. Search for 'change_value' and replace it with this value LPC1768

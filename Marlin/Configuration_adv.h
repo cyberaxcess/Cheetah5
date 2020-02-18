@@ -2864,7 +2864,7 @@
   //#define USER_GCODE_2 "M555" // shows nozzle-to-probe offset values
   #else
   #define USER_DESC_2 "Check Probe Offset"
-  #define USER_GCODE_2 "M555" // shows nozzle-to-probe offset values
+  #define USER_GCODE_2 "M8511" // shows nozzle-to-probe offset values
   #endif 
 
   #define USER_DESC_3 "Disable Cold Extrusion"

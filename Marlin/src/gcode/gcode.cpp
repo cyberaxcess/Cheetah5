@@ -756,7 +756,7 @@ void GcodeSuite::process_parsed_command(const bool no_ok/*=false*/) {
 
       #if HAS_BED_PROBE
         case 851: M851(); break;                                  // M851: Set Z Probe Z Offset
-        case 555: KAY3DM851(); break;                             // KAY3DM851: Displays OFFsets on Screen
+        case 8511: KAY3DM851(); break;                             // KAY3DM851: Displays OFFsets on Screen
       #endif
 
       #if ENABLED(SKEW_CORRECTION_GCODE)
