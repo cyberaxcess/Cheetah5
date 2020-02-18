@@ -127,7 +127,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 //#define Ender_5plus // Chose this is you have the Ender 5-Plus. You need to have TFT lcd control. Cheetah 5.0 does not work with stock touchscreen.
 //#define Ender_5pro // Choose this if you have the Ender 5-Pro
 //#define CR_10 // Choose this if you have Creality CR-10 
-//#define CR_10S // choose this if you have a Creality CR-10s
+//#define CR_10S // Choose this if you have a Creality CR-10s
 //#define Sidewinder_x1 // Choose this if you have an Artillery Sidewinder_x1. Please make sure you have a compatible LCD screen with your chosen board or your compilation will fail. Default is set to CR10_DIPLSY
 //#define KAY3D_CoreXY // Choose this only if you have the KAY3D CoreXY based on the Ender 3. There are available .bin files also in the firmware section. 
 //#define Anet_A8 // Choose this only if you have the Anet A8.
@@ -411,7 +411,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.1.9"
+#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.2.0"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
