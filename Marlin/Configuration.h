@@ -413,7 +413,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.2.1"
+#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.2.2"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -1399,7 +1399,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
   //#define MIN_SOFTWARE_ENDSTOP_Z
   #else
   
-    //define MIN_SOFTWARE_ENDSTOP_Z
+    #define MIN_SOFTWARE_ENDSTOP_Z
   
   #endif
 #endif

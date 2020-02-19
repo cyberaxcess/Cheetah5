@@ -2861,7 +2861,7 @@
 
   #if defined(Original_creality1) || defined(Original_creality2) //float offset values are declared for XYZ probe offset LCD display. They will not display right in 8 bit boards.
   //#define USER_DESC_2 "Check Probe Offset"
-  //#define USER_GCODE_2 "M555" // shows nozzle-to-probe offset values
+  //#define USER_GCODE_2 "M8511" // shows nozzle-to-probe offset values
   #else
   #define USER_DESC_2 "Check Probe Offset"
   #define USER_GCODE_2 "M8511" // shows nozzle-to-probe offset values
@@ -2874,14 +2874,14 @@
   #define USER_GCODE_4 "M302 P0" // shows nozzle-to-probe offset values
 
   //unused custom user menus below. Add in your own if you want.
-  /*#define USER_DESC_3 "Preheat for " PREHEAT_2_LABEL
-  #define USER_GCODE_3 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
+  /*#define USER_DESC_5 "Preheat for " PREHEAT_2_LABEL
+  #define USER_GCODE_5 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
 
-  #define USER_DESC_4 "Heat Bed/Home/Level"
-  #define USER_GCODE_4 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
+  #define USER_DESC_6 "Heat Bed/Home/Level"
+  #define USER_GCODE_6 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
 
-  #define USER_DESC_5 "Home & Info"
-  #define USER_GCODE_5 "G28\nM503"*/
+  #define USER_DESC_7 "Home & Info"
+  #define USER_GCODE_7 "G28\nM503"*/
 #endif
 
 /**
