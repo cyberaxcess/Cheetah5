@@ -2867,21 +2867,27 @@
   #define USER_GCODE_2 "M8511" // shows nozzle-to-probe offset values
   #endif 
 
-  #define USER_DESC_3 "Disable Cold Extrusion"
-  #define USER_GCODE_3 "M302 P1" // shows nozzle-to-probe offset values
+#if ENABLED(Auto_bed_level)
+   #define USER_DESC_3 "Repeatibility Test"
+  #define USER_GCODE_3 "G28 \n M48 P20" // shows nozzle-to-probe offset values
+#endif
 
-  #define USER_DESC_4 "Enable Cold Extrusion"
-  #define USER_GCODE_4 "M302 P0" // shows nozzle-to-probe offset values
+  #define USER_DESC_4 "Disable Cold Extrusion"
+  #define USER_GCODE_4 "M302 P1" // shows nozzle-to-probe offset values
 
-  //unused custom user menus below. Add in your own if you want.
-  /*#define USER_DESC_5 "Preheat for " PREHEAT_2_LABEL
-  #define USER_GCODE_5 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
+  #define USER_DESC_5 "Enable Cold Extrusion"
+  #define USER_GCODE_5 "M302 P0" // shows nozzle-to-probe offset values
 
-  #define USER_DESC_6 "Heat Bed/Home/Level"
-  #define USER_GCODE_6 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
+ 
+  /*#define USER_DESC_6 "Preheat for " PREHEAT_2_LABEL
+  #define USER_GCODE_6 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
+  
+  unused custom user menus below. Add in your own if you want.
+  #define USER_DESC_7 "Heat Bed/Home/Level"
+  #define USER_GCODE_7 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
 
-  #define USER_DESC_7 "Home & Info"
-  #define USER_GCODE_7 "G28\nM503"*/
+  #define USER_DESC_8 "Home & Info"
+  #define USER_GCODE_8 "G28\nM503"*/
 #endif
 
 /**

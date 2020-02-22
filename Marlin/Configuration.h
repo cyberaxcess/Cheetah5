@@ -7,7 +7,11 @@
  * and hit compile.
  * It's really that simple. 
  * 
- * You choose something by removing // in front of the code.
+ * Please know that Cheetah 5.0 firmware is provided to you free of charge, in a "as-is" state. We cannot be held liable for the damanges that it
+ * does to your 3D printer if any. Please proceed cautiously.
+ * 
+ * In Cheetah 5.0, 
+ * You choose or define something by removing // in front of the code.
  * You can ignore a code by keeping // in front of the code
  * You can key in custom values by changing parameters called 'change_value'
  * 
@@ -45,10 +49,10 @@
 //#define super_compress_space // Once enabled, you will lose your SD card support. You have to send prints via USB or Octoprint
 //#define creality_silent_board // Enable this, if you have a silent board. This will switch off Linear advance automatically. Known issue with Creality silent boards.
 
-#include "../kay3d/printer_definitions.h"
-#include "../kay3d/board_definitions.h"
-#include "../kay3d/hotend_extruder_definitions.h"
-#include "../kay3d/nozzle_probe_fan.h"
+#include "printer_def.h"
+#include "board_def.h"
+#include "hotext_def.h"
+#include "sensorprob_off.h"
 
 
 #pragma once
@@ -83,7 +87,7 @@
 Board name: Original_creality1, change_value = melzi //use this value in platform.ino. Search for 'change_value' and replace it with this value melzi
 Board name: Original_creality2, change_value = megaatmega2560 //use this value in platform.ino. Search for 'change_value' and replace it with this value megaatmega2560
 Board name: MKSGENLV1_0, change_value = megaatmega2560 //use this value in platform.ino. Search for 'change_value' and replace it with this value megaatmega2560
-Board name: BTTSKRE3MINIV1_0, change_value = STM32F103RC_bigtree_NOUSB //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_bigtree_512K
+Board name: BTTSKRE3MINIV1_0, change_value = STM32F103RC_bigtree_NOUSB/ STM32F103RC_bigtree //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_bigtree_512K
 Board name: BTTSKRE3MINIV1_2, change_value = STM32F103RC_bigtree_512K //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_bigtree_512K
 Board name: BTTSKR1_3, change_value = LPC1768 //use this value in platform.ino. Search for 'change_value' and replace it with this value LPC1768
 Board name: BTTSKR1_4, change_value = LPC1768 //use this value in platform.ino. Search for 'change_value' and replace it with this value LPC1768
@@ -413,7 +417,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.2.2"
+#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.2.3"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -933,6 +937,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 #define Y_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #endif
 
+
 #if ENABLED(FIX_MOUNTED_PROBE)
 #define Z_MIN_ENDSTOP_INVERTING true //Only applicable to NPN N.O. sensors
 #else
@@ -942,7 +947,6 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 #define X_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define Z_MAX_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
-
 #if ENABLED(Auto_bed_level)
 //#if ENABLED(BLTOUCH)
 #define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
@@ -2621,9 +2625,9 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 #define BED_PROBE_GRID_COUNT
 #endif
 
-
 // Section - Custom Codes
 /*****************************************************************************/
 //#define Auto_fan_E1 // Activate this function only for SKR 1.3, 1.4, 1.4 Turbo Boards. Mechanical wiring changes IS REQUIRED! Proceed with caution
 //#define SDCARD_BOARD_FIX // Forces SD card to work on mainboard. Some boards do not need this fix.
 //#define SDCARD_LCD_FIX // Forces SD card to work on external LCD/ TFT. Some screens do not need this fix.
+//#define Ender_5fix // If you have a newer ender 5, you need to enable this fix to adjust your Z steps

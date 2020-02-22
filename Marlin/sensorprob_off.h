@@ -10,7 +10,6 @@
 //
 #include <stdint.h>
 
-//#include "printer_definitions.h"
 #include "Configuration.h"
 
 //below are the mounts available as offsets. Up to double nests can be configured. #if, #if, #define

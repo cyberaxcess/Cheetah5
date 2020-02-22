@@ -65,7 +65,11 @@
 #define CHOPPER_TIMING CHOPPER_DEFAULT_24V
 #define x_steps 80
 #define y_steps 80
+#if ENABLED(Ender_5fix)
+#define z_steps 800
+#else
 #define z_steps 400
+#endif
 #define X_HOME_DIR 1 //This defines the homing direction. Change between values of 1 and -1 to change direction
 #define Y_HOME_DIR 1 //This defines the homing direction. Change between values of 1 and -1 to change direction
 #define Z_HOME_DIR -1 //This defines the homing direction. Change between values of 1 and -1 to change direction
@@ -226,7 +230,7 @@
 #define USE_YMAX_PLUG
 //#define USE_ZMAX_PLUG
 #define X_BED_SIZE 379
-#define Y_BED_SIZE 371
+#define Y_BED_SIZE 395 // 371 new values to fix ender 5 plus Y stalling before hitting end stops.
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
