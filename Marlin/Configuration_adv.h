@@ -185,16 +185,45 @@
    * and/or decrease WATCH_TEMP_INCREASE. WATCH_TEMP_INCREASE should not be set
    * below 2.
    */
+
+  /* improve selection of thermal protection in cheeth 5.0*/
+   #if (THERMAL_PROTECTION_LEVEL == 1)
+  #define WATCH_TEMP_PERIOD 20                // Seconds
+  #define WATCH_TEMP_INCREASE 1               // Degrees Celsius
+  #endif
+  
+  #if (THERMAL_PROTECTION_LEVEL == 2)
   #define WATCH_TEMP_PERIOD 20                // Seconds
   #define WATCH_TEMP_INCREASE 2               // Degrees Celsius
+  #endif
+
+  #if (THERMAL_PROTECTION_LEVEL == 3)
+  #define WATCH_TEMP_PERIOD 15                // Seconds
+  #define WATCH_TEMP_INCREASE 2               // Degrees Celsius
+  #endif
+  
+
 #endif
 
 /**
  * Thermal Protection parameters for the bed are just as above for hotends.
  */
 #if ENABLED(THERMAL_PROTECTION_BED)
+
+  #if (THERMAL_PROTECTION_LEVEL == 1)
+  #define THERMAL_PROTECTION_BED_PERIOD        15 // Seconds
+  #define THERMAL_PROTECTION_BED_HYSTERESIS     1 // Degrees Celsius
+  #endif
+
+  #if (THERMAL_PROTECTION_LEVEL == 2)
   #define THERMAL_PROTECTION_BED_PERIOD        20 // Seconds
   #define THERMAL_PROTECTION_BED_HYSTERESIS     2 // Degrees Celsius
+  #endif
+
+    #if (THERMAL_PROTECTION_LEVEL == 3)
+  #define THERMAL_PROTECTION_BED_PERIOD        15 // Seconds
+  #define THERMAL_PROTECTION_BED_HYSTERESIS     2 // Degrees Celsius
+  #endif
 
   /**
    * As described above, except for the bed (M140/M190/M303).
@@ -2034,7 +2063,11 @@
   #define INTERPOLATE       true  // Interpolate X/Y/Z_MICROSTEPS to 256
 
   #if AXIS_IS_TMC(X)
+    #if (x_driver_type == TMC2208)
+    #define X_CURRENT 760 // for TMC2208 only
+    #else
     #define X_CURRENT       580        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #endif //x driver current swtich
     #define X_CURRENT_HOME  X_CURRENT  // (mA) RMS current for sensorless homing
     #define X_MICROSTEPS     16    // 0..256
     #define X_RSENSE          0.11
@@ -2050,7 +2083,11 @@
   #endif
 
   #if AXIS_IS_TMC(Y)
-    #define Y_CURRENT       580
+  #if (y_driver_type == TMC2208)
+    #define Y_CURRENT 760 // for TMC2208 only
+    #else
+    #define Y_CURRENT       580        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #endif //x driver current swtich
     #define Y_CURRENT_HOME  Y_CURRENT
     #define Y_MICROSTEPS     16
     #define Y_RSENSE          0.11
@@ -2066,7 +2103,11 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       580
+    #if (z_driver_type == TMC2208)
+    #define Z_CURRENT 760 // for TMC2208 only
+    #else
+    #define Z_CURRENT 580 // (mA) RMS current. Multiply by 1.414 for peak current.
+    #endif //x driver current swtich
     #define Z_CURRENT_HOME  Z_CURRENT
     #define Z_MICROSTEPS     16
     #define Z_RSENSE          0.11
@@ -2098,7 +2139,11 @@
   #endif
 
   #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT      650
+  #if (e_driver_type == TMC2208)
+    #define E0_CURRENT 900 // for TMC2208 only
+    #else
+    #define E0_CURRENT       650        // (mA) RMS current. Multiply by 1.414 for peak current.
+    #endif //x driver current swtich
     #define E0_MICROSTEPS    16
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS     -1
@@ -2260,7 +2305,11 @@
    * M912 - Clear stepper driver overtemperature pre-warn condition flag.
    * M122 - Report driver parameters (Requires TMC_DEBUG)
    */
-  //#define MONITOR_DRIVER_STATUS
+  #if ENABLED(Compress_space)
+  //#define MONITOR_DRIVER_STATUS 
+  #else
+  #define MONITOR_DRIVER_STATUS 
+  #endif
 
   #if ENABLED(MONITOR_DRIVER_STATUS)
     #define CURRENT_STEP_DOWN     50  // [mA]
@@ -2285,7 +2334,7 @@
   #define Z2_HYBRID_THRESHOLD      3
   #define Z3_HYBRID_THRESHOLD      3
   #define Z4_HYBRID_THRESHOLD      3
-  #define E0_HYBRID_THRESHOLD     30
+  #define E0_HYBRID_THRESHOLD     60 //incrased from 30 to prevent extruder from kicking into spreadycycle easily. 
   #define E1_HYBRID_THRESHOLD     30
   #define E2_HYBRID_THRESHOLD     30
   #define E3_HYBRID_THRESHOLD     30
@@ -2355,7 +2404,12 @@
    * M122 S0/1 will enable continous reporting.
    */
   
-  #define TMC_DEBUG
+  #if ENABLED(Compress_space)
+  //#define TMC_DEBUG 
+  #else
+  #define TMC_DEBUG 
+  #endif
+ 
 
   /**
    * You can set your own advanced settings by filling in predefined functions.

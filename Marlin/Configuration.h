@@ -54,7 +54,6 @@
 #include "hotext_def.h"
 #include "sensorprob_off.h"
 
-
 #pragma once
 
 /******************************************************SET UP WIZARD ***************************************************************/
@@ -290,6 +289,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 
 //#define INVERT_XYZ // Define this function only if your XYZ is going in the wrong direction!!! This inverts all 3 axis(s) together. Does not work with Custom_Printer. Change settigns in that section!
 #define INVERT_E0_DIR true // This is for your Extruder's direction. Change value to false if you need your extruder motor to rotate the other way
+#define THERMAL_PROTECTION_LEVEL 2 // Acceptable values are 1, 2 and 3. If you have false positives, choose 1. If you want more aggressive thermal runaway settings, choose 3.
 #define DEFAULT_ACCELERATION          500    // X, Y, Z and E acceleration for printing moves. Change if you like
 #define DEFAULT_RETRACT_ACCELERATION  500    // E acceleration for retracts. Change if you like
 #define DEFAULT_TRAVEL_ACCELERATION   500    // X, Y, Z acceleration for travel (non printing) moves. Change if you like
@@ -417,7 +417,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.2.4"
+#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.2.5"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -2635,3 +2635,4 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 //#define SDCARD_BOARD_FIX // Forces SD card to work on mainboard. Some boards do not need this fix.
 //#define SDCARD_LCD_FIX // Forces SD card to work on external LCD/ TFT. Some screens do not need this fix.
 //#define Ender_5fix // If you have a newer ender 5, you need to enable this fix to adjust your Z steps
+
