@@ -2272,11 +2272,7 @@
    */
   #define STEALTHCHOP_XY
   #define STEALTHCHOP_Z
-  #if (e_driver_type == TMC2208)
- //#define STEALTHCHOP_E //solves TMC2208 errors if LA is acivated
-  #else
   #define STEALTHCHOP_E //if driver is not TMC2208, steathchop for E is automatically enabled.
-  #endif
 
   /**
    * Optimize spreadCycle chopper parameters by using predefined parameter sets
