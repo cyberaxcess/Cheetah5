@@ -2064,7 +2064,7 @@
 
   #if AXIS_IS_TMC(X)
     #if (x_driver_type == TMC2208)
-    #define X_CURRENT 760 // for TMC2208 only
+    #define X_CURRENT 580 // for TMC2208 only
     #else
     #define X_CURRENT       580        // (mA) RMS current. Multiply by 1.414 for peak current.
     #endif //x driver current swtich
@@ -2084,7 +2084,7 @@
 
   #if AXIS_IS_TMC(Y)
   #if (y_driver_type == TMC2208)
-    #define Y_CURRENT 760 // for TMC2208 only
+    #define Y_CURRENT 580 // for TMC2208 only
     #else
     #define Y_CURRENT       580        // (mA) RMS current. Multiply by 1.414 for peak current.
     #endif //x driver current swtich
@@ -2104,7 +2104,7 @@
 
   #if AXIS_IS_TMC(Z)
     #if (z_driver_type == TMC2208)
-    #define Z_CURRENT 760 // for TMC2208 only
+    #define Z_CURRENT 580 // for TMC2208 only
     #else
     #define Z_CURRENT 580 // (mA) RMS current. Multiply by 1.414 for peak current.
     #endif //x driver current swtich
@@ -2140,7 +2140,7 @@
 
   #if AXIS_IS_TMC(E0)
   #if (e_driver_type == TMC2208)
-    #define E0_CURRENT 900 // for TMC2208 only
+    #define E0_CURRENT 650 // for TMC2208 only
     #else
     #define E0_CURRENT       650        // (mA) RMS current. Multiply by 1.414 for peak current.
     #endif //x driver current swtich
