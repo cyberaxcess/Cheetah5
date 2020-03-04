@@ -51,8 +51,8 @@
 
 #if ENABLED(BTTSKRE3DIPV1_0)
 #define motherboard_name BOARD_BIGTREE_SKR_E3_DIP
-#define SERIAL_PORT 2
-#define SERIAL_PORT_2 -1
+#define SERIAL_PORT -1 //2
+#define SERIAL_PORT_2 2 //-1
 #define BAUDRATE 115200
 #endif
 

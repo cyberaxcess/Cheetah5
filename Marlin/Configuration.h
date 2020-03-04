@@ -141,6 +141,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 /*** *** *** if have a Custom_printer, define your values below. If not, skip this section and continue below *** *** ***/
 
 #if ENABLED(Custom_printer)
+//#define COREXY // if you have a coreXY machine, you want to enable this option. 
 #define USE_XMIN_PLUG //if you have an i3 machine, your machine usually homes towards the left, where your x-min is.
 #define USE_YMIN_PLUG //if you have an i3 machine, your machine usually home towards the back, where y-min is. 
 #define USE_ZMIN_PLUG //if you have an i3 machine, your machine usually home towards the bottom, where z-min is. 
@@ -417,7 +418,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.2.6"
+#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.2.7"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4
@@ -2461,7 +2462,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
-//#define FAN_SOFT_PWM
+#define FAN_SOFT_PWM
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
