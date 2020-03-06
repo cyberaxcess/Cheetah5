@@ -278,6 +278,37 @@
 #define Z_HOME_DIR -1 //This defines the homing direction. Change between values of 1 and -1 to change direction
 #endif
 
+
+#if ENABLED(CR_10S5)
+#define USE_XMIN_PLUG
+#define USE_YMIN_PLUG
+#define USE_ZMIN_PLUG
+//#define USE_XMAX_PLUG
+//#define USE_YMAX_PLUG
+//#define USE_ZMAX_PLUG
+#define X_BED_SIZE 510
+#define Y_BED_SIZE 510
+#define X_MIN_POS 0
+#define Y_MIN_POS 0
+#define Z_MIN_POS 0
+#define X_MAX_POS X_BED_SIZE
+#define Y_MAX_POS Y_BED_SIZE
+#define Z_MAX_POS 510
+#define INVERT_X_DIR false
+#define INVERT_Y_DIR false
+#define INVERT_Z_DIR true
+#define SHOW_CUSTOM_BOOTSCREEN // Show the bitmap in Marlin/_Bootscreen.h on startup.
+//#define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+#define CHOPPER_TIMING CHOPPER_DEFAULT_12V
+#define x_steps 80
+#define y_steps 80
+#define z_steps 400
+#define X_HOME_DIR -1 //This defines the homing direction. Change between values of 1 and -1 to change direction
+#define Y_HOME_DIR -1 //This defines the homing direction. Change between values of 1 and -1 to change direction
+#define Z_HOME_DIR -1 //This defines the homing direction. Change between values of 1 and -1 to change direction
+#endif
+
+
 //continue with printer definitions. 
 
 #if ENABLED(INVERT_XYZ) //function swops all available axis except E0. E0 found in seciton 13.

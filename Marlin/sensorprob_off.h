@@ -31,6 +31,10 @@
       #define NOZZLE_TO_PROBE_OFFSET { -44, -14, 0 } // Measure your  own X, Y & Z offsets and place them inside the brackets
     #endif
 
+    #if ENABLED(Bltouch_creality_kit)
+      #define NOZZLE_TO_PROBE_OFFSET { -41, -8, 0 } 
+    #endif
+
   #endif//for bltouch
 
 
