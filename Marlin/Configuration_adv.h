@@ -2272,8 +2272,8 @@
    */
   #define STEALTHCHOP_XY
   #define STEALTHCHOP_Z
-  #define STEALTHCHOP_E //if driver is not TMC2208, steathchop for E is automatically enabled.
-
+  #define STEALTHCHOP_E 
+  
   /**
    * Optimize spreadCycle chopper parameters by using predefined parameter sets
    * or with the help of an example included in the library.

@@ -74,9 +74,12 @@
 #endif
 
 #if ENABLED(CR_10S5)
-#include "../../../kay3d_bootscreens/_Bootscreen_CR10.h"
+#include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
 #endif
 
+#if ENABLED(CR_10V2)
+#include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
+#endif
 
   #ifndef CUSTOM_BOOTSCREEN_BMP_BYTEWIDTH
     #define CUSTOM_BOOTSCREEN_BMP_BYTEWIDTH CEILING(CUSTOM_BOOTSCREEN_BMPWIDTH, 8)

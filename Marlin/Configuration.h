@@ -74,6 +74,7 @@
 //#define BTTSKR1_4 // [BETA] Choose this if you are using BigTreeTech SKR 1.4
 //#define BTTSKRV1_4TURBO //Choose this if you are using BigTreeTech SKR 1.4 Turbo
 //#define BTTSKRE3DIPV1_0 // Choose this if you are using BigTreeTech SKR E3 DIP v1.0
+//#define BTTSKRE3DIPV1_1 // [BETA] Choose this if you are using BigTreeTech SKR E3 DIP v1.1
 //#define BTTSKRPROV1_1 //Choose this if you are using BigTreeTech SKR PRO v1.1
 //#define BTTSKRNPRO1_1 //Choose this if you are using BigTreeTech SKR Non-PRO v1.1
 //#define MKSGENLV1_0 //[BETA] Choose this if you are using MKS Gen L v1.0 
@@ -93,6 +94,7 @@ Board name: BTTSKR1_4, change_value = LPC1768 //use this value in platform.ino. 
 Board name: BTTGTRV1_0, change_value = BIGTREE_GTR_V1_0 //use this value in platform.ino. Search for 'change_value' and replace it with this value BIGTREE_GTR_V1_0
 Board name: BTTSKRV1_4TURBO, change_value = LPC1769 //use this value in platform.ino. Search for 'change_value' and replace it with this value LPC1769
 Board name: BTTSKRE3DIPV1_0, change_value = STM32F103RC_bigtree //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_bigtree
+Board name: BTTSKRE3DIPV1_1, change_value = STM32F103RC_bigtree_512K //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_bigtree_512K
 Board name: BTTSKRPROV1_1, change_value = BIGTREE_SKR_PRO //use this value in platform.ino. Search for 'change_value' and replace it with this value BIGTREE_SKR_PRO
 Board name: BTTSKRNPRO1_1, change_value = LPC1768 //use this value in platform.ino. Search for 'change_value' and replace it with this value BIGTREE_SKR_PRO
 Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = STM32F103RC_fysetc //use this value in platform.ino. Search for 'change_value' and replace it with this value STM32F103RC_fysetc*/
@@ -129,11 +131,13 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 
 //#define Ender_3 // Choose this if you have the Ender 3 or Ender 3-Pro
 //#define Ender_5 // Choose this if you have the Ender 5
+//#define Ender_5_2 // Choose this configuration ONLY if the first ender 5 configuration doesn't work
 //#define Ender_5plus // Chose this is you have the Ender 5-Plus. You need to have TFT lcd control. Cheetah 5.0 does not work with stock touchscreen.
 //#define Ender_5pro // Choose this if you have the Ender 5-Pro
 //#define CR_10 // Choose this if you have Creality CR-10 
 //#define CR_10S // Choose this if you have a Creality CR-10s
 //#define CR_10S5 // Choose this if you have a Creality-10 S5 
+//#define CR_10V2 // Choose this if you have a Crealit-10 V2
 //#define Sidewinder_x1 // Choose this if you have an Artillery Sidewinder_x1. Please make sure you have a compatible LCD screen with your chosen board or your compilation will fail. Default is set to CR10_DIPLSY
 //#define KAY3D_CoreXY // Choose this only if you have the KAY3D CoreXY based on the Ender 3. There are available .bin files also in the firmware section. 
 //#define Anet_A8 // Choose this only if you have the Anet A8.
@@ -420,7 +424,7 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.2.8"
+#define CUSTOM_MACHINE_NAME "KAY3D Cheetah 5.0 v1.2.9"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like http://www.uuidgenerator.net/version4

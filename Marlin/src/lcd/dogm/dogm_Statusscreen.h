@@ -95,6 +95,11 @@
 #include "../../../kay3d_statusscreens/_Statusscreen_CR10.h"
 #endif
 
+#if ENABLED(CR_10V2)
+#include "../../../kay3d_statusscreens/_Statusscreen_CR10.h"
+#endif
+
+
 #ifdef STATUS_SCREENWIDTH
 #error "Your custom _Statusscreen.h needs to be converted for Marlin 2.0."
 #endif

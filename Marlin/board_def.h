@@ -56,6 +56,13 @@
 #define BAUDRATE 115200
 #endif
 
+#if ENABLED(BTTSKRE3DIPV1_1)
+#define motherboard_name BOARD_BIGTREE_SKR_E3_DIP
+#define SERIAL_PORT -1 //2
+#define SERIAL_PORT_2 2 //-1
+#define BAUDRATE 115200
+#endif
+
 #if ENABLED(BTTSKRPROV1_1)
 #define motherboard_name BOARD_BIGTREE_SKR_PRO_V1_1
 #define SERIAL_PORT 6
