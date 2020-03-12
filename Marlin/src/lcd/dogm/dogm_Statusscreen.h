@@ -54,6 +54,10 @@
 #include "../../../kay3d_statusscreens/_Statusscreen_E5.h"
 #endif
 
+#if ENABLED(Ender_5_2)
+#include "../../../kay3d_statusscreens/_Statusscreen_E5.h"
+#endif
+
 #if ENABLED(Ender_5pro)
 #include "../../../kay3d_statusscreens/_Statusscreen_E5pro.h"
 #endif

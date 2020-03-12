@@ -296,10 +296,11 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 
 //#define INVERT_XYZ // Define this function only if your XYZ is going in the wrong direction!!! This inverts all 3 axis(s) together. Does not work with Custom_Printer. Change settigns in that section!
 #define INVERT_E0_DIR true // This is for your Extruder's direction. Change value to false if you need your extruder motor to rotate the other way
-#define THERMAL_PROTECTION_LEVEL 2 // Acceptable values are 1, 2 and 3. If you have false positives, choose 1. If you want more aggressive thermal runaway settings, choose 3.
+#define THERMAL_PROTECTION_LEVEL 2 // Acceptable values are 1 (default), 2 and 3. If you have false positives, choose 1. If you want more aggressive thermal runaway settings, choose 3.
 #define DEFAULT_ACCELERATION          500    // X, Y, Z and E acceleration for printing moves. Change if you like
 #define DEFAULT_RETRACT_ACCELERATION  500    // E acceleration for retracts. Change if you like
 #define DEFAULT_TRAVEL_ACCELERATION   500    // X, Y, Z acceleration for travel (non printing) moves. Change if you like
+#define HOMING_MOVEMENT_SPEEDK 1 // Acceptable values are 1 (default), 2, 3, 4 and 5. Please watch out for 4 and 5. These changes your printer's XY homing AND LCD XY manual movement speed.
 #if DISABLED(CLASSIC_JERK)
   #define JUNCTION_DEVIATION_MM 0.08 // (mm) Distance from real junction edge. You can tune this and change it at a later time.
 #endif
@@ -1682,7 +1683,29 @@ Board name: FYSETCV1_1A, FYSETCV1_1B, FYSETCV1_2A, FYSETCV1_2B, change_value = S
 #endif
 
 // Homing speeds (mm/m)
+#if (HOMING_MOVEMENT_SPEEDK==1) 
 #define HOMING_FEEDRATE_XY (50*60)
+#endif 
+
+#if (HOMING_MOVEMENT_SPEEDK==2)
+#define HOMING_FEEDRATE_XY (60*60)
+#endif
+
+#if (HOMING_MOVEMENT_SPEEDK==3)
+#define HOMING_FEEDRATE_XY (70*60)
+#endif 
+
+#if (HOMING_MOVEMENT_SPEEDK==4)
+#define HOMING_FEEDRATE_XY (80*60)
+#endif 
+
+#if (HOMING_MOVEMENT_SPEEDK==5)
+#define HOMING_FEEDRATE_XY (90*60)
+#endif 
+
+#if (HOMING_MOVEMENT_SPEEDK==6)
+#define HOMING_FEEDRATE_XY (110*60)
+#endif 
 
 #if ENABLED(Auto_bed_level)
 #define HOMING_FEEDRATE_Z  (8*60)

@@ -277,7 +277,7 @@
 #define CHOPPER_TIMING CHOPPER_DEFAULT_24V
 #define x_steps 80
 #define y_steps 80
-#define z_steps 400
+#define z_steps 1200
 #define X_HOME_DIR -1 //This defines the homing direction. Change between values of 1 and -1 to change direction
 #define Y_HOME_DIR 1 //This defines the homing direction. Change between values of 1 and -1 to change direction
 #define Z_HOME_DIR -1 //This defines the homing direction. Change between values of 1 and -1 to change direction

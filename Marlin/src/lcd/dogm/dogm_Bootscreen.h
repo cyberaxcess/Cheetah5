@@ -40,6 +40,10 @@
 #include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
 #endif
 
+#if ENABLED(Ender_5_2)
+#include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
+#endif
+
     #if ENABLED(Ender_5pro)
 #include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
 #endif

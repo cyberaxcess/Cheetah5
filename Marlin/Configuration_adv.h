@@ -960,7 +960,31 @@
 // @section lcd
 
 #if EITHER(ULTIPANEL, EXTENSIBLE_UI)
+  
+  #if (HOMING_MOVEMENT_SPEEDK==1)
   #define MANUAL_FEEDRATE { 50*60, 50*60, 4*60, 2*60 } // Feedrates for manual moves along X, Y, Z, E from panel
+  #endif 
+
+   #if (HOMING_MOVEMENT_SPEEDK==2)
+  #define MANUAL_FEEDRATE { 70*60, 70*60, 15*60, 2*60 } // Feedrates for manual moves along X, Y, Z, E from panel
+  #endif
+
+   #if (HOMING_MOVEMENT_SPEEDK==3)
+  #define MANUAL_FEEDRATE { 100*60, 100*60, 20*60, 2*60 } // Feedrates for manual moves along X, Y, Z, E from panel
+  #endif
+
+   #if (HOMING_MOVEMENT_SPEEDK==4)
+  #define MANUAL_FEEDRATE { 130*60, 130*60, 38*60, 2*60 } // Feedrates for manual moves along X, Y, Z, E from panel
+  #endif
+
+  #if (HOMING_MOVEMENT_SPEEDK==5)
+  #define MANUAL_FEEDRATE { 160*60, 160*60, 50*60, 2*60 } // Feedrates for manual moves along X, Y, Z, E from panel
+  #endif
+
+  #if (HOMING_MOVEMENT_SPEEDK==6)
+  #define MANUAL_FEEDRATE { 200*60, 200*60, 200*60, 2*60 } // Feedrates for manual moves along X, Y, Z, E from panel
+  #endif
+
   #define SHORT_MANUAL_Z_MOVE 0.025 // (mm) Smallest manual Z move (< 0.1mm)
   #if ENABLED(ULTIPANEL)
     #define MANUAL_E_MOVES_RELATIVE // Display extruder move distance rather than "position"
