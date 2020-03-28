@@ -20,8 +20,7 @@
 #endif
 
 #if ENABLED(BTTSKR1_3)
-#define processor_name LPC1768 //use this value in platform.ino. Serach for 'change_value' and replace it with this value LPC1768
-#define motherboard_name BOARD_BIGTREE_SKR_V1_3
+#define motherboard_name BOARD_BTT_SKR_V1_3
 #define SERIAL_PORT 0
 #define SERIAL_PORT_2 -1
 #define BAUDRATE 115200
@@ -35,7 +34,7 @@
 #endif
 
 #if ENABLED(BTTSKR1_4)
-#define motherboard_name BOARD_BIGTREE_SKR_V1_4
+#define motherboard_name BOARD_BTT_SKR_V1_4
 #define SERIAL_PORT -1
 #define SERIAL_PORT_2 0
 #define BAUDRATE 115200
@@ -43,28 +42,28 @@
 
 
 #if ENABLED(BTTSKRV1_4TURBO)
-#define motherboard_name BOARD_BIGTREE_SKR_V1_4_TURBO
+#define motherboard_name BOARD_BTT_SKR_V1_4_TURBO
 #define SERIAL_PORT 0
 #define SERIAL_PORT_2 -1
 #define BAUDRATE 115200
 #endif
 
 #if ENABLED(BTTSKRE3DIPV1_0)
-#define motherboard_name BOARD_BIGTREE_SKR_E3_DIP
+#define motherboard_name BOARD_BTT_SKR_E3_DIP
 #define SERIAL_PORT -1 //2
 #define SERIAL_PORT_2 2 //-1
 #define BAUDRATE 115200
 #endif
 
 #if ENABLED(BTTSKRE3DIPV1_1)
-#define motherboard_name BOARD_BIGTREE_SKR_E3_DIP
+#define motherboard_name BOARD_BTT_SKR_E3_DIP
 #define SERIAL_PORT -1 //2
 #define SERIAL_PORT_2 2 //-1
 #define BAUDRATE 115200
 #endif
 
 #if ENABLED(BTTSKRPROV1_1)
-#define motherboard_name BOARD_BIGTREE_SKR_PRO_V1_1
+#define motherboard_name BOARD_BTT_SKR_PRO_V1_1
 #define SERIAL_PORT 6
 #define SERIAL_PORT_2 1
 #define BAUDRATE 115200
@@ -94,8 +93,8 @@
 
 
 #if ENABLED(BTTSKRNPRO1_1)
-#define motherboard_name BOARD_BIGTREE_SKR_V1_1
-#define SERIAL_PORT 1
+#define motherboard_name BOARD_BTT_SKR_V1_1
+#define SERIAL_PORT 0 //changed from 1
 #define SERIAL_PORT_2 -1
 #define BAUDRATE 115200
 #endif 

@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -32,7 +32,7 @@
 
 #if ENABLED(SHOW_CUSTOM_BOOTSCREEN)
 
-  #if ENABLED(Ender_3)
+#if ENABLED(Ender_3)
 #include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
   #endif
 
@@ -84,7 +84,6 @@
 #if ENABLED(CR_10V2)
 #include "../../../kay3d_bootscreens/_Bootscreen_kay3d.h"
 #endif
-
   #ifndef CUSTOM_BOOTSCREEN_BMP_BYTEWIDTH
     #define CUSTOM_BOOTSCREEN_BMP_BYTEWIDTH CEILING(CUSTOM_BOOTSCREEN_BMPWIDTH, 8)
   #endif
@@ -93,7 +92,6 @@
   #endif
 
 #endif
-
 
 #if ENABLED(BOOT_MARLIN_LOGO_SMALL)
 

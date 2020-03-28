@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -57,10 +57,10 @@
   #define SERVO0_PIN 27
   #undef BEEPER_PIN
 #else
-#define FIL_RUNOUT_PIN 27   //declares pin 27 for filament runout sensor
+#define FIL_RUNOUT_PIN 27   //declares pin 27 for filament runout sensor.
 #undef BEEPER_PIN
-
 #endif
+
 
 // Alter timing for graphical display
 #if HAS_GRAPHICAL_LCD

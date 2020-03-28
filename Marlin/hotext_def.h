@@ -55,6 +55,10 @@
 #define e__steps 93
 #endif
 
+#if ENABLED (Ender_regular_metal)
+#define e__steps 97.3
+#endif
+
 #if ENABLED (Ender_metaldualdrive)
 #define e__steps 140
 #endif

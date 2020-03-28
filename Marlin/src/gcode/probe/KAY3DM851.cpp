@@ -46,18 +46,12 @@ void GcodeSuite::KAY3DM851() {
 
   // Show usage with no parameters
   if (!parser.seen("XYZ")) {
-   // SERIAL_ECHOLNPAIR_P(
       #if HAS_PROBE_XY_OFFSET
-        //PSTR(MSG_PROBE_OFFSET " X"), probe_offset.x, SP_Y_STR, probe_offset.y, SP_Z_STR
         #if HAS_SPI_LCD // Display M851 results in the status bar
-        //char sigma_str[8];
-      ui.status_printf_P(0, PSTR("Probe Offset : X%.02f, Y%.02f, Z%.02f"), float(probe_offset.x), float(probe_offset.y), float(probe_offset.z));
+      ui.status_printf_P(0, PSTR("Probe Offset : X%.02f, Y%.02f, Z%.02f"), float(probe.offset_xy.x), float(probe.offset_xy.y)/*, float(probe.offset_xy.z)*/);
       ui.return_to_status(); //returns to LCD's main status screen
 
         #else
-        //PSTR(MSG_PROBE_OFFSET " X0 Y0 Z")
-        //#if HAS_SPI_LCD // Display M851 results in the status bar
-        //char sigma_str[8];
         ui.status_printf_P(0, MSG_PROBE_OFFSET " X0 Y0 Z");
         #endif //end HAS_SPI_LCD
                         

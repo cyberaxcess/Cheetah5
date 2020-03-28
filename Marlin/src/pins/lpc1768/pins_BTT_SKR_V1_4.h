@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -23,6 +23,14 @@
 
 #ifndef BOARD_INFO_NAME
   #define BOARD_INFO_NAME "BIGTREE SKR 1.4"
+#endif
+
+//
+// EEPROM
+//
+#if NONE(FLASH_EEPROM_EMULATION, SDCARD_EEPROM_EMULATION)
+  #define FLASH_EEPROM_EMULATION
+  //#define SDCARD_EEPROM_EMULATION
 #endif
 
 //
@@ -74,12 +82,14 @@
 #if Z_STALL_SENSITIVITY
   #define Z_STOP_PIN       Z_DIAG_PIN
   #if Z_HOME_DIR < 0
-    #define Z_MAX_PIN      P1_24   // PWRDET
+    #define Z_MAX_PIN      P1_00   // PWRDET
   #else
-    #define Z_MIN_PIN      P1_24   // PWRDET
+    #define Z_MIN_PIN      P1_00   // PWRDET
   #endif
 #else
-  #define Z_STOP_PIN       P1_27   // Z-STOP
+  #ifndef Z_STOP_PIN
+    #define Z_STOP_PIN     P1_27   // Z-STOP
+  #endif
 #endif
 
 //
@@ -149,11 +159,6 @@
 
 #define TEMP_1_PIN         P0_23_A0   // A2 (T2) - (69) - TEMP_1_PIN
 #define TEMP_BED_PIN       P0_25_A2   // A0 (T0) - (67) - TEMP_BED_PIN
-
-//
-// Include common SKR pins
-//
-#include "pins_BTT_SKR.h"
 
 //
 // Software SPI pins for TMC2130 stepper drivers
@@ -232,9 +237,19 @@
  *              EXP2                                              EXP1
  */
 #if HAS_SPI_LCD
-  #define BTN_ENC          P0_28   // (58) open-drain
+  #if ENABLED(ANET_FULL_GRAPHICS_LCD)
 
-  #if ENABLED(CR10_STOCKDISPLAY)
+    #define LCD_PINS_RS    P1_23
+
+    #define BTN_EN1        P1_20
+    #define BTN_EN2        P1_22
+    #define BTN_ENC        P1_18
+
+    #define LCD_PINS_ENABLE P1_21
+    #define LCD_PINS_D4    P1_19
+
+  #elif ENABLED(CR10_STOCKDISPLAY)
+    #define BTN_ENC        P0_28   // (58) open-drain
     #define LCD_PINS_RS    P1_22
 
     #define BTN_EN1        P1_18
@@ -244,6 +259,7 @@
     #define LCD_PINS_D4    P1_21
 
   #else
+    #define BTN_ENC        P0_28   // (58) open-drain
     #define LCD_PINS_RS    P1_19
 
     #define BTN_EN1        P3_26   // (31) J3-2 & AUX-4
@@ -253,7 +269,10 @@
     #define LCD_PINS_D4    P1_20
 
     #define LCD_SDSS       P0_16   // (16) J3-7 & AUX-4
-    #define SD_DETECT_PIN  P1_31   // (49) (NOT 5V tolerant)
+
+    #if SD_CONNECTION_IS(LCD)
+      #define SD_DETECT_PIN P1_31  // (49) (NOT 5V tolerant)
+    #endif
 
     #if ENABLED(FYSETC_MINI_12864)
       #define DOGLCD_CS    P1_18
@@ -318,3 +337,8 @@
  *   P0_27  (57) (Open collector)
  *   P0_28  (58) (Open collector)
  */
+
+//
+// Include common SKR pins
+//
+#include "pins_BTT_SKR_common.h"
